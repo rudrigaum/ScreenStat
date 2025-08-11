@@ -1,0 +1,28 @@
+### Xcode ###
+.DS_Store
+*.xcodeproj
+!/ScreenStat.xcodeproj/project.pbxproj
+!/ScreenStat.xcodeproj/xcshareddata
+!/ScreenStat.xcworkspace
+!/ScreenStat.xcworkspace/xcshareddata
+
+### Build e Dados Derivados ###
+build/
+DerivedData/
+*.xcarchive
+*.xcactivitylog
+*.xcuserstate
+
+### Swift ###
+*.swp
+*.bak
+*.o
+*.d
+*.i
+*.s
+*.a
+*.lib
+
+### Pods e Carthage (se for usar) ###
+Pods/
+Carthage/Build

@@ -6,3 +6,19 @@
 //
 
 import Foundation
+import UIKit
+
+class HomeCoordinator: Coordinator {
+    var navigationController: UINavigationController
+
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
+    func start() {
+        let storageService = FocusSessionStorageService()
+        let viewModel = HomeViewModel(storageService: storageService)
+        let viewController = HomeViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: false)
+    }
+}

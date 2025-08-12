@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct FocusSession: Codable {
+    let duration: TimeInterval
+    let date: Date
+}

@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct AppUsage: Codable {
+    let appName: String
+    let usageTime: TimeInterval
+    let timestamp: Date
+}

@@ -18,6 +18,12 @@ class HomeView: UIView {
         return label
     }()
     
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return tableView
+    }()
+    
     // MARK: - Initializer
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,11 +39,20 @@ class HomeView: UIView {
         backgroundColor = .systemBackground
         
         addSubview(titleLabel)
+        addSubview(tableView)
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            
+            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }

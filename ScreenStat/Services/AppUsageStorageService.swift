@@ -7,26 +7,26 @@
 
 import Foundation
 
-protocol AppUsageStorageServiceProtocol {
-    func save(_ usage: AppUsage)
-    func load() -> [AppUsage]
+protocol FocusSessionStorageServiceProtocol {
+    func save(_ session: FocusSession)
+    func load() -> [FocusSession]
 }
 
-class AppUsageUserDefaultsService: AppUsageStorageServiceProtocol {
-    private let key = "appUsageRecords"
+class FocusSessionUserDefaultsService: FocusSessionStorageServiceProtocol {
+    private let key = "focusSessionRecords"
 
-    func save(_ usage: AppUsage) {
+    func save(_ session: FocusSession) {
         var records = load()
-        records.append(usage)
+        records.append(session)
 
         if let encodedData = try? JSONEncoder().encode(records) {
             UserDefaults.standard.set(encodedData, forKey: key)
         }
     }
 
-    func load() -> [AppUsage] {
+    func load() -> [FocusSession] {
         if let savedData = UserDefaults.standard.data(forKey: key),
-           let decodedRecords = try? JSONDecoder().decode([AppUsage].self, from: savedData) {
+           let decodedRecords = try? JSONDecoder().decode([FocusSession].self, from: savedData) {
             return decodedRecords
         }
         return []

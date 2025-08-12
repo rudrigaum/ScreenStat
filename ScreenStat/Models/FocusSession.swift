@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct AppUsage: Codable {
-    let appName: String
-    let usageTime: TimeInterval
-    let timestamp: Date
+struct FocusSession: Codable {
+    let duration: TimeInterval
+    let date: Date
 }

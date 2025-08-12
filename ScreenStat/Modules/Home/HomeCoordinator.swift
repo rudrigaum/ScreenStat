@@ -16,7 +16,7 @@ class HomeCoordinator: Coordinator {
     }
     
     func start() {
-        let storageService = AppUsageUserDefaultsService()
+        let storageService = FocusSessionStorageService()
         let viewModel = HomeViewModel(storageService: storageService)
         let viewController = HomeViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: false)
